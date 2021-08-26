@@ -24,7 +24,7 @@ def main():
     wallet_root_path = os.path.join(jm_single().datadir, "wallets")
     wallet_name = os.path.join(wallet_root_path, args[0])
     if jm_single().config.get("POLICY", "native") == "true":
-        walletclass = SegwitWallet
+        walletclass = SegwitWalletFidelityBonds
     else:
         walletclass = SegwitLegacyWallet
     wallet = create_wallet(wallet_name, password, 4, walletclass)
