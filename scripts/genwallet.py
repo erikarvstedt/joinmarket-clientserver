@@ -10,13 +10,13 @@ log = get_log()
 
 def main():
     parser = OptionParser(
-    usage='usage: %prog [options] wallet_file_name password',
-    description='Create a wallet with the given wallet name and password.')
+        usage='usage: %prog [options] wallet_file_name password',
+        description='Create a wallet with the given wallet name and password.'
+    )
     add_base_options(parser)
     (options, args) = parser.parse_args()
     if options.wallet_password_stdin:
-        stdin = sys.stdin.read()
-        password = stdin.encode("utf-8")
+        password = sys.stdin.read().encode("utf-8")
     else:
         assert len(args) > 1, "must provide password via stdin (see --help), or as second argument."
         password = args[1].encode("utf-8")
